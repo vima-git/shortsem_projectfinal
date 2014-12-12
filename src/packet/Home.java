@@ -34,7 +34,7 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
 
-        jLabel1.setText("Welcome to Packet Cap Tool");
+        jLabel1.setText("Welcome to Packet Picker Tool");
 
         captureButton.setText("Capture Packets");
         captureButton.addActionListener(new java.awt.event.ActionListener() {
