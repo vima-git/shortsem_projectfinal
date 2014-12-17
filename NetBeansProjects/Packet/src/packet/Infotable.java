@@ -192,7 +192,7 @@ public class Infotable {
         JpcapCaptor captor= JpcapCaptor.openDevice(devices[index],65, false, 20);
         
 
-        captor.setFilter("tcp or udp", true);
+        captor.setFilter("udp", true);
         
         //declaring an array list
         ArrayList<Packet> obj = new ArrayList<Packet>();
