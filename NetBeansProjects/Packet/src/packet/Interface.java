@@ -22,23 +22,30 @@ public class Interface {
         NetworkInterface[] devices = JpcapCaptor.getDeviceList();
 
         for(int i=0;i<devices.length;++i){
-
-        packet.captureJFrame.interfaceTextArea.append("\n\n-----Interface "+i+" Info-----");
-        packet.captureJFrame.interfaceTextArea.append("\nInterface Number: "+i);
-        packet.captureJFrame.interfaceTextArea.append("\nDescription: "+devices[i].name+"("+devices[i].description+")");
-        packet.captureJFrame.interfaceTextArea.append("\nDatalink Name: "+devices[i].datalink_name+"("+devices[i].datalink_description+")");
-        packet.captureJFrame.interfaceTextArea.append("\nMAC address: ");
+        packet.captureResultJFrame.jComboBox1.addItem(i);
+         
+        packet.captureResultJFrame.interfaceTextArea.append("\n\n-----Interface "+i+" Info-----");
+        packet.captureResultJFrame.interfaceTextArea.append("\nInterface Number: "+i);
+        packet.captureResultJFrame.interfaceTextArea.append("\nDescription: "+devices[i].name+"("+devices[i].description+")");
+        packet.captureResultJFrame.interfaceTextArea.append("\nDatalink Name: "+devices[i].datalink_name+"("+devices[i].datalink_description+")");
+        packet.captureResultJFrame.interfaceTextArea.append("\nMAC address: ");
         byte[] R=devices[i].mac_address;
         for(int A=0;A<=devices.length;A++)
-        packet.captureJFrame.interfaceTextArea.append(Integer.toHexString(R[A] & 0xff) +":");
+        packet.captureResultJFrame.interfaceTextArea.append(Integer.toHexString(R[A] & 0xff) +":");
 
 
-        NetworkInterfaceAddress [] INT = devices[i].addresses;
-        packet.captureJFrame.interfaceTextArea.append("\nIP Adress: " +INT[0].address);
-        packet.captureJFrame.interfaceTextArea.append("\nSubnet Mask: "+INT[0].subnet);
-        packet.captureJFrame.interfaceTextArea.append("\nBroadcast adress: "+INT[0].broadcast);
+        /*NetworkInterfaceAddress [] INT = devices[i].addresses;
+        packet.captureResultJFrame.interfaceTextArea.append("\nIP Adress: " +INT[0].address.getHostAddress());
+        packet.captureResultJFrame.interfaceTextArea.append("\nSubnet Mask: "+INT[0].subnet);
+        packet.captureResultJFrame.interfaceTextArea.append("\nBroadcast adress: "+INT[0].broadcast);*/
 
-
+        /*for (NetworkInterfaceAddress a : devices[i].addresses)
+         packet.captureResultJFrame.interfaceTextArea.append(" address:"+a.address + " " + a.subnet + " "+ a.broadcast);*/
+        for (NetworkInterfaceAddress a : devices[i].addresses){
+        packet.captureResultJFrame.interfaceTextArea.append("\nIP Adress: " +a.address.getHostAddress());
+        packet.captureResultJFrame.interfaceTextArea.append("\nSubnet Mask: "+a.subnet);
+        packet.captureResultJFrame.interfaceTextArea.append("\nBroadcast adress: "+a.broadcast);
+        }
 
         }
 
@@ -49,5 +56,8 @@ public class Interface {
 
 
     }
-
+    public static void device(){
+   
+    
+    }
 }

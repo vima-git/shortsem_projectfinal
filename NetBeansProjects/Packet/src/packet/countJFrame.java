@@ -29,12 +29,15 @@ public class countJFrame extends javax.swing.JFrame {
 
         bg1.add(and1);
         bg1.add(or1);
+        bg1.add(unselect1);
         
         bg2.add(and2);
         bg2.add(or2);
+        bg2.add(unselect2);
         
         bg3.add(and3);
         bg3.add(or3);
+        bg3.add(unselect3);
         //bg1.add(jRadioButton3);
 
     }
@@ -124,6 +127,26 @@ public class countJFrame extends javax.swing.JFrame {
     public countJFrame() {
         initComponents();
         groupButton( ) ;
+        jLabel2.setVisible(false);
+        jComboBox3.setVisible(false);
+        jComboBox4.setVisible(false);
+        jTextField2.setVisible(false);
+        and2.setVisible(false);
+        or2.setVisible(false);
+        unselect2.setVisible(false);
+        
+        jLabel4.setVisible(false);
+        jComboBox5.setVisible(false);
+        jComboBox6.setVisible(false);
+        jTextField3.setVisible(false);
+        and3.setVisible(false);
+        or3.setVisible(false);
+        unselect3.setVisible(false);
+        
+        jLabel5.setVisible(false);
+        jComboBox7.setVisible(false);
+        jComboBox8.setVisible(false);
+        jTextField4.setVisible(false);
       
     }
 
@@ -166,14 +189,11 @@ public class countJFrame extends javax.swing.JFrame {
         countResultLabel6 = new javax.swing.JLabel();
         showjCheckBox1 = new javax.swing.JCheckBox();
         countjCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        unselect3 = new javax.swing.JRadioButton();
+        unselect1 = new javax.swing.JRadioButton();
+        unselect2 = new javax.swing.JRadioButton();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -195,6 +215,11 @@ public class countJFrame extends javax.swing.JFrame {
         });
 
         or2.setText("or");
+        or2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                or2ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SOURCE_IP", "DST_IP", "SRC_PORT", "DST_PORT", "LENGTH", "PROTOCOL" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -221,6 +246,11 @@ public class countJFrame extends javax.swing.JFrame {
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "EQUEL =", "GREATER THAN >", "SMALLER THAN <", " " }));
 
         or1.setText("or");
+        or1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                or1ActionPerformed(evt);
+            }
+        });
 
         and1.setText("and");
         and1.addActionListener(new java.awt.event.ActionListener() {
@@ -297,33 +327,6 @@ public class countJFrame extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox3.setText("SRC_IP");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox4.setText("DST_IP");
-
-        jCheckBox5.setText("SRC_Port");
-
-        jCheckBox6.setText("DST_Port");
-
-        jCheckBox7.setText("LENGTH");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox8.setText("PROTOCOL");
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
-            }
-        });
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -341,6 +344,27 @@ public class countJFrame extends javax.swing.JFrame {
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
         }
+
+        unselect3.setText("Unseleted");
+        unselect3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unselect3ActionPerformed(evt);
+            }
+        });
+
+        unselect1.setText("Unseleted");
+        unselect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unselect1ActionPerformed(evt);
+            }
+        });
+
+        unselect2.setText("Unseleted");
+        unselect2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unselect2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -363,26 +387,9 @@ public class countJFrame extends javax.swing.JFrame {
                                 .addGap(0, 133, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(showjCheckBox1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(120, 120, 120)
-                                        .addComponent(jButton1))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox6)
-                                            .addComponent(jCheckBox3))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jCheckBox4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jCheckBox5))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jCheckBox7)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jCheckBox8)))))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(120, 120, 120)
+                                .addComponent(jButton1)
+                                .addGap(0, 576, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,18 +419,27 @@ public class countJFrame extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addComponent(unselect3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(unselect1)
+                                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(unselect2))
+                                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -445,7 +461,8 @@ public class countJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(and1)
-                            .addComponent(or1))
+                            .addComponent(or1)
+                            .addComponent(unselect1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -454,7 +471,9 @@ public class countJFrame extends javax.swing.JFrame {
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(or2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(or2)
+                                .addComponent(unselect2))
                             .addComponent(and2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -465,29 +484,20 @@ public class countJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(and3)
-                            .addComponent(or3))
+                            .addComponent(or3)
+                            .addComponent(unselect3))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showjCheckBox1)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(showjCheckBox1)
+                .addGap(23, 23, 23)
                 .addComponent(countjCheckBox2)
                 .addGap(25, 25, 25)
                 .addComponent(jButton1)
@@ -504,17 +514,35 @@ public class countJFrame extends javax.swing.JFrame {
     private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
         // TODO add your handling code here:
                 Tempfile.tf=null;
-            Conditions frame1=new Conditions();
-            countJFrame.this.setVisible(false);
+            Load frame1=new Load();
             frame1.setVisible(true);
+            countJFrame.this.dispose();
     }//GEN-LAST:event_backButton1ActionPerformed
 
     private void and1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_and1ActionPerformed
         // TODO add your handling code here:
+        if(or1.isSelected()==false){
+        jLabel2.setVisible(true);
+        jComboBox3.setVisible(true);
+        jComboBox4.setVisible(true);
+        jTextField2.setVisible(true);
+        and2.setVisible(true);
+        or2.setVisible(true);
+        unselect2.setVisible(true);
+        }
     }//GEN-LAST:event_and1ActionPerformed
 
     private void and2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_and2ActionPerformed
         // TODO add your handling code here:
+        if(or2.isSelected()==false){
+        jLabel4.setVisible(true);
+        jComboBox5.setVisible(true);
+        jComboBox6.setVisible(true);
+        jTextField3.setVisible(true);
+        and3.setVisible(true);
+        or3.setVisible(true);
+        unselect3.setVisible(true);
+        }
     }//GEN-LAST:event_and2ActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
@@ -539,10 +567,22 @@ public class countJFrame extends javax.swing.JFrame {
 
     private void and3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_and3ActionPerformed
         // TODO add your handling code here:
+        if(or3.isSelected()==false){
+        jLabel5.setVisible(true);
+        jComboBox7.setVisible(true);
+        jComboBox8.setVisible(true);
+        jTextField4.setVisible(true);
+        }
     }//GEN-LAST:event_and3ActionPerformed
 
     private void or3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_or3ActionPerformed
         // TODO add your handling code here:
+        if(and3.isSelected()==false){
+        jLabel5.setVisible(true);
+        jComboBox7.setVisible(true);
+        jComboBox8.setVisible(true);
+        jTextField4.setVisible(true);
+        }
     }//GEN-LAST:event_or3ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -568,9 +608,14 @@ public class countJFrame extends javax.swing.JFrame {
         //Tempfile.tf=null;
         }
         
-        else if(Conditions.filenameTextField.getText()!=null){ 
+        //else if(Conditions.filenameTextField.getText()!=null)
             //System.out.println("method 2");
-         file= packet.LoadPacketfile.Loadfile();}
+         //file= packet.LoadPacketfile.Loadfile();
+        else{
+        file= packet.LoadPacketfile.Loadfile();
+        }
+         
+        
         
         ArrayList<String> state= collectdata(); //THIS COLLECTS JCOMBOX DATA & JTEXTFIELD
         //countResultLabel6.setText(state.get(2));
@@ -861,26 +906,94 @@ public class countJFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_countjCheckBox2ActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
-
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        System.out.println("row");
+        //System.out.println(Infotable.finalresult.get(jTable1.getSelectedRow()));
+        //System.out.println(jTable1.getSelectedRow());
+        
+        
+       sortJFrame moreDetail= new sortJFrame();
+       moreDetail.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void unselect3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unselect3ActionPerformed
+        // TODO add your handling code here:
+        jLabel5.setVisible(false);
+        jComboBox7.setVisible(false);
+        jComboBox8.setVisible(false);
+        jTextField4.setVisible(false);
+    }//GEN-LAST:event_unselect3ActionPerformed
+
+    private void unselect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unselect1ActionPerformed
+        // TODO add your handling code here:
+        jLabel2.setVisible(false);
+        jComboBox3.setVisible(false);
+        jComboBox4.setVisible(false);
+        jTextField2.setVisible(false);
+        and2.setVisible(false);
+        or2.setVisible(false);
+        unselect2.setVisible(false);
+        
+        jLabel4.setVisible(false);
+        jComboBox5.setVisible(false);
+        jComboBox6.setVisible(false);
+        jTextField3.setVisible(false);
+        and3.setVisible(false);
+        or3.setVisible(false);
+        unselect3.setVisible(false);
+        
+        jLabel5.setVisible(false);
+        jComboBox7.setVisible(false);
+        jComboBox8.setVisible(false);
+        jTextField4.setVisible(false);
+        
+    }//GEN-LAST:event_unselect1ActionPerformed
+
+    private void unselect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unselect2ActionPerformed
+        // TODO add your handling code here:
+        jLabel4.setVisible(false);
+        jComboBox5.setVisible(false);
+        jComboBox6.setVisible(false);
+        jTextField3.setVisible(false);
+        and3.setVisible(false);
+        or3.setVisible(false);
+        unselect3.setVisible(false);
+        
+        jLabel5.setVisible(false);
+        jComboBox7.setVisible(false);
+        jComboBox8.setVisible(false);
+        jTextField4.setVisible(false);
+    }//GEN-LAST:event_unselect2ActionPerformed
+
+    private void or2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_or2ActionPerformed
+        // TODO add your handling code here:
+        if(and2.isSelected()==false){
+        jLabel4.setVisible(true);
+        jComboBox5.setVisible(true);
+        jComboBox6.setVisible(true);
+        jTextField3.setVisible(true);
+        and3.setVisible(true);
+        or3.setVisible(true);
+        unselect3.setVisible(true);
+        }
+    }//GEN-LAST:event_or2ActionPerformed
+
+    private void or1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_or1ActionPerformed
+        // TODO add your handling code here:
+        if(and1.isSelected()==false){
+        jLabel2.setVisible(true);
+        jComboBox3.setVisible(true);
+        jComboBox4.setVisible(true);
+        jTextField2.setVisible(true);
+        and2.setVisible(true);
+        or2.setVisible(true);
+        unselect2.setVisible(true);
+        }
+    }//GEN-LAST:event_or1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -928,12 +1041,6 @@ public class countJFrame extends javax.swing.JFrame {
     public static javax.swing.JLabel countResultLabel6;
     public static javax.swing.JCheckBox countjCheckBox2;
     private javax.swing.JButton jButton1;
-    public static javax.swing.JCheckBox jCheckBox3;
-    public static javax.swing.JCheckBox jCheckBox4;
-    public static javax.swing.JCheckBox jCheckBox5;
-    public static javax.swing.JCheckBox jCheckBox6;
-    public static javax.swing.JCheckBox jCheckBox7;
-    public static javax.swing.JCheckBox jCheckBox8;
     public static javax.swing.JComboBox jComboBox1;
     public static javax.swing.JComboBox jComboBox2;
     public static javax.swing.JComboBox jComboBox3;
@@ -957,6 +1064,9 @@ public class countJFrame extends javax.swing.JFrame {
     private static javax.swing.JRadioButton or2;
     public static javax.swing.JRadioButton or3;
     public static javax.swing.JCheckBox showjCheckBox1;
+    public static javax.swing.JRadioButton unselect1;
+    public static javax.swing.JRadioButton unselect2;
+    public static javax.swing.JRadioButton unselect3;
     // End of variables declaration//GEN-END:variables
 }
 

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import jpcap.packet.Packet;
@@ -54,10 +55,21 @@ public class captureResultJFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         capjLabel3 = new javax.swing.JLabel();
+        LNIButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        interfaceTextArea = new javax.swing.JTextArea();
+        Label = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("nunber of packets");
+
+        numOfpacketsTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numOfpacketsTextField1ActionPerformed(evt);
+            }
+        });
 
         capButton1.setText("Capture & Show");
         capButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,56 +119,94 @@ public class captureResultJFrame extends javax.swing.JFrame {
 
         capjLabel3.setText("Capturing....");
 
+        LNIButton.setText("List Network Interfaces");
+        LNIButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LNIButtonActionPerformed(evt);
+            }
+        });
+
+        interfaceTextArea.setBackground(new java.awt.Color(0, 0, 0));
+        interfaceTextArea.setColumns(20);
+        interfaceTextArea.setFont(new java.awt.Font("Lucida Console", 0, 13)); // NOI18N
+        interfaceTextArea.setForeground(new java.awt.Color(51, 255, 0));
+        interfaceTextArea.setLineWrap(true);
+        interfaceTextArea.setRows(5);
+        jScrollPane3.setViewportView(interfaceTextArea);
+
+        Label.setText("Select Interface");
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(LNIButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(numOfpacketsTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(capButton1)
+                .addGap(35, 35, 35)
+                .addComponent(capjLabel3)
+                .addGap(43, 43, 43))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addGap(31, 31, 31)
-                        .addComponent(numOfpacketsTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addComponent(capButton1)
-                        .addGap(93, 93, 93)
-                        .addComponent(capjLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
-                            .addComponent(jLabel2))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(fileNamejTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(oKjButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(jButton3))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(224, 224, 224)
+                .addComponent(jLabel2)
+                .addGap(26, 26, 26)
+                .addComponent(fileNamejTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(oKjButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(221, 221, 221)
+                .addComponent(jButton3)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(numOfpacketsTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(capButton1)
-                    .addComponent(capjLabel3))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(capjLabel3)
+                        .addComponent(capButton1)
+                        .addComponent(numOfpacketsTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LNIButton)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Label, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(oKjButton1)
                     .addComponent(fileNamejTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,13 +220,14 @@ public class captureResultJFrame extends javax.swing.JFrame {
     private void capButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capButton1ActionPerformed
         try {
             // TODO add your handling code here:
-            
+            packet.captureResultJFrame.capjLabel3.setText("capturing");
            // ArrayList<Packet> captuerdPacket= packet.LoadPacketfile.Loadfile();
             ArrayList<Packet> captuerdPacket= packet.Infotable.getPacketArray();
             Tempfile t= new Tempfile();
             t.tf= captuerdPacket;
             t.name= "sanj";
             Infotable.ShowDetail1(captuerdPacket);
+            //packet.captureResultJFrame.capjLabel3.setVisible(false);
             
             
             //jTable1.setValueAt("Sanjaya", i, 0);
@@ -223,12 +274,34 @@ public class captureResultJFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        captureResultJFrame.jLabel2.setVisible(true);
-        captureResultJFrame.fileNamejTextField1.setVisible(true);
-        captureResultJFrame.oKjButton1.setVisible(true);
+        
+        
+       Load saveframe= new Load();
+       saveframe.setVisible(true);
+       saveframe.m=1;
+       captureResultJFrame.this.dispose();
+        //captureResultJFrame.jLabel2.setVisible(true);
+        //captureResultJFrame.fileNamejTextField1.setVisible(true);
+        //captureResultJFrame.oKjButton1.setVisible(true);
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void LNIButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNIButtonActionPerformed
+        // TODO add your handling code here:
+        Interface.List();
+        
+
+    }//GEN-LAST:event_LNIButtonActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void numOfpacketsTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numOfpacketsTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numOfpacketsTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,14 +339,19 @@ public class captureResultJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LNIButton;
+    private javax.swing.JLabel Label;
     private javax.swing.JButton capButton1;
     public static javax.swing.JLabel capjLabel3;
     public static javax.swing.JTextField fileNamejTextField1;
+    public static javax.swing.JTextArea interfaceTextArea;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    public static javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTable1;
     public static javax.swing.JTextField numOfpacketsTextField1;
     public static javax.swing.JButton oKjButton1;

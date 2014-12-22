@@ -34,7 +34,7 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
 
-        jLabel1.setText("Welcome to Packet Cap Tool");
+        jLabel1.setText("Welcome to Packet Picker Tool");
 
         captureButton.setText("Capture Packets");
         captureButton.addActionListener(new java.awt.event.ActionListener() {
@@ -82,14 +82,14 @@ public class Home extends javax.swing.JFrame {
 
     private void queryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queryButtonActionPerformed
         // TODO add your handling code here:
-        Conditions frame1 =new Conditions();
-        Home.this.setVisible(false);
+        Load frame1 =new Load();
         frame1.setVisible(true);
+        Home.this.dispose();
     }//GEN-LAST:event_queryButtonActionPerformed
 
     private void captureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_captureButtonActionPerformed
         // TODO add your handling code here:
-        captureJFrame frame1=new captureJFrame();
+        captureResultJFrame frame1=new captureResultJFrame();
         Home.this.setVisible(false);
         frame1.setVisible(true);
     }//GEN-LAST:event_captureButtonActionPerformed

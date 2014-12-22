@@ -5,17 +5,22 @@
  */
 package packet;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author xxx
  */
 public class Load extends javax.swing.JFrame {
-
+    public int m=0;
     /**
      * Creates new form Load
      */
     public Load() {
         initComponents();
+        
     }
 
     /**
@@ -65,10 +70,25 @@ public class Load extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
-        // TODO add your handling code here:
-        captureResultJFrame frame1=new captureResultJFrame();
-        Load.this.setVisible(false);
-        frame1.setVisible(true);
+        try {
+            // TODO add your handling code here:
+            if(m==0)
+                packet.Tempfile.file();
+            
+            if(m==1)
+                packet.Tempfile.Savefile();
+//        captureResultJFrame frame1=new captureResultJFrame();
+//       
+//        frame1.setVisible(true);
+            countJFrame frame1=new countJFrame();
+            Load.this.setVisible(false);
+            frame1.setVisible(true);
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Load.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jFileChooser1ActionPerformed
 
     /**
@@ -107,7 +127,7 @@ public class Load extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFileChooser jFileChooser1;
+    public static javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

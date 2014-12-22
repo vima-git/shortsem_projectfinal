@@ -12,6 +12,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import jpcap.packet.ARPPacket;
 import jpcap.packet.Packet;
 import jpcap.packet.TCPPacket;
 import jpcap.packet.UDPPacket;
@@ -21,16 +22,18 @@ import jpcap.packet.UDPPacket;
  * @author xxx
  */
 public class LoadPacketfile {
-    
+    //public static String fname;
      public static ArrayList<Packet> Loadfile()
     {
         ArrayList<Packet> arraylist= new ArrayList<Packet>();
         try
         {   
             //Scanner name= new Scanner(System.in);
-            //System.out.println("Enter File Name:");
-            //String fname= "2000";
-            String fname= packet.Conditions.filenameTextField.getText();
+            //System.out.println("Enter File Name:"+fname);
+            String fname= packet.Tempfile.file();
+            //String fname= "C:\\Users\\xxx\\Documents\\NetBeansProjects\\Packet\\2000";
+            //String fname= packet.Conditions.filenameTextField.getText();
+            
             FileInputStream fis = new FileInputStream(fname);
             ObjectInputStream ois = new ObjectInputStream(fis);
              arraylist = (ArrayList) ois.readObject();
@@ -76,16 +79,7 @@ public class LoadPacketfile {
         return obj1;
      }
      
-        /*ArrayList<Packet> obj= arraylist;
-        System.out.println("src ip");
-            for( int i=0;i< obj.size();++i){
-               if(obj.get(i).getClass().equals(TCPPacket.class))
-               //System.out.println(((TCPPacket)obj.get(i)).src_ip);
-               System.out.println(((TCPPacket)obj.get(i)).src_ip+"\t\t"+((TCPPacket)obj.get(i).;
-               //if(obj.get(i).getClass().equals(UDPPacket.class))
-               //System.out.println(((UDPPacket)obj.get(i)).src_ip); 
-               //System.out.println(((UDPPacket)obj.get(i)).src_ip+"\t\t"+((UDPPacket)obj.get(i)).dst_ip);    
-            }*/
+       
      
      
      public static ArrayList<Packet> Some_eq(ArrayList<Packet> obj,int some, Object size) throws UnknownHostException{
@@ -202,13 +196,13 @@ public class LoadPacketfile {
               
                 if(obj.get(i).getClass().equals(TCPPacket.class)){
                     TCPPacket tcp = (TCPPacket)obj.get(i);
-                    if(tcp.length==psize)
+                    if(tcp.len==psize)
                          obj1.add(obj.get(i));
                     
                 }
                 if(obj.get(i).getClass().equals(UDPPacket.class)){
                     UDPPacket udp = (UDPPacket)obj.get(i);
-                    if(udp.length==psize)
+                    if(udp.len==psize)
                          obj1.add(obj.get(i));
                 }    
             }
@@ -230,6 +224,12 @@ public class LoadPacketfile {
             else if(psize.equals("UDP") || psize.equals("udp")){
                 for( int i=0;i< obj.size();++i){
                     if(obj.get(i).getClass().equals(UDPPacket.class))
+                       obj1.add(obj.get(i)); 
+                }
+            }
+            else if(psize.equals("ARP") || psize.equals("arp")){
+                for( int i=0;i< obj.size();++i){
+                    if(obj.get(i).getClass().equals(ARPPacket.class))
                        obj1.add(obj.get(i)); 
                 }
             }
@@ -309,13 +309,13 @@ PROTOCOL*/
               
                 if(obj.get(i).getClass().equals(TCPPacket.class)){
                     TCPPacket tcp = (TCPPacket)obj.get(i);
-                    if(tcp.length>psize)
+                    if(tcp.len>psize)
                          obj1.add(obj.get(i));
                     
                 }
                 if(obj.get(i).getClass().equals(UDPPacket.class)){
                     UDPPacket udp = (UDPPacket)obj.get(i);
-                    if(udp.length>psize)
+                    if(udp.len>psize)
                          obj1.add(obj.get(i));
                 }    
             }
@@ -440,13 +440,13 @@ PROTOCOL*/
               
                 if(obj.get(i).getClass().equals(TCPPacket.class)){
                     TCPPacket tcp = (TCPPacket)obj.get(i);
-                    if(tcp.length<psize)
+                    if(tcp.len<psize)
                          obj1.add(obj.get(i));
                     
                 }
                 if(obj.get(i).getClass().equals(UDPPacket.class)){
                     UDPPacket udp = (UDPPacket)obj.get(i);
-                    if(udp.length<psize)
+                    if(udp.len<psize)
                          obj1.add(obj.get(i));
                 }    
             }
@@ -459,9 +459,6 @@ PROTOCOL*/
         packet.countJFrame.countResultLabel6.setText("Number of Packets satisfying above condtions is "+Integer.toString(obj.size()));
     }
     
-    public static void finalshow(ArrayList<Packet> obj){
-        packet.Infotable.Filterdetail(obj);
-
-    }
+    
 
 }
